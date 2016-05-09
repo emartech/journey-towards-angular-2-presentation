@@ -264,7 +264,9 @@
                 <pre><code class="javascript">
     // phone-list.ctrl.js
     function getFilteredPhones() {
-      return $filter('filter')($scope.allPhones, { name: $scope.searchText, carrier: $scope.selectedCarrier });
+      return $filter('filter')($scope.allPhones, {
+        name: $scope.searchText, carrier: $scope.selectedCarrier
+      });
     }
 
     $scope.$watch('selectedCarrier', function() {
@@ -379,7 +381,7 @@
             </section>
 
             <section>
-                <img style="box-shadow: none !important;" src="img/components.png" alt="">
+                <img style="max-width: 100%; max-height: 100%; box-shadow: none !important;" src="img/components.png" alt="">
             </section>
 
             <section>
@@ -564,7 +566,7 @@
 
             <section>
                 <h2><span style="display: inline-block; margin-right: 15px; color: #72ea2e !important;">&#x2713;</span> Ideal communication</h2>
-                <img src="img/data-event-flow.png">
+                <img style="box-shadow: none !important;" src="img/components_flow.png" alt="">
             </section>
 
 
@@ -784,8 +786,8 @@
             </section>
 
             <section>
-                <h2>Data loading, filtering and handling</h2>
-                <h4>Isn't too much?</h4>
+                <h2 style="width: 110%; margin-left: -5%;">Loading, filtering and handling</h2>
+                <h4 style="margin-top: -20px; margin-bottom: 10px;">Isn't it too much?</h4>
 
                 <pre><code class="javascript">
     // phone-list.ctrl.js
@@ -807,7 +809,7 @@
             </section>
 
             <section>
-                <h2>Move reponsibility<br>to service</h2>
+                <h2>Move reponsibility<br>to a service</h2>
                 <pre><code class="javascript">
     // phone-list.ctrl.js
     $scope.phones = filteredPhoneList;
