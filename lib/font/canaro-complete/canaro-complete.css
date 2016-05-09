@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'Canaro Complete';
+    src: url('Rene%20Bieder%20-%20Canaro%20Medium.otf') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Canaro Complete';
+    src: url('Rene%20Bieder%20-%20Canaro%20Medium%20Italic.otf') format('embedded-opentype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Canaro Complete';
+    src: url('Rene%20Bieder%20-%20Canaro%20Bold.otf') format('embedded-opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Canaro Complete';
+    src: url('Rene%20Bieder%20-%20Canaro%20Bold%20Italic.otf') format('embedded-opentype');
+    font-weight: 600;
+    font-style: italic;
+}

@@ -1,0 +1,892 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Journey towards Angular 2</title>
+
+    <link rel="shortcut icon" href="./emarsys.ico">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/emarsys.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <style>
+        h1, h2, h3, h4 {
+            color: #fff !important;
+        }
+
+        body {
+            background: #1F2325;
+        }
+
+        .reveal {
+            color: #c5d8d8;
+        }
+
+        img {
+            border-width: 0 !important;
+        }
+
+        .reveal p {
+            font-size: 1.4em;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="reveal">
+
+    <div class="slides">
+        <section>
+            <h1>Journey towards Angular 2</h1>
+            <h4>András Fincza and Gábor Soós</h4>
+            <img class="logo" src="./img/em-logo.svg" alt="" width="300px">
+        </section>
+
+        <!--<section>-->
+            <!--<section>-->
+                <!--<h2>Angular at Emarsys</h2>-->
+                <!--<ul>-->
+                    <!--<li>MEAN stack</li>-->
+                    <!--<li>Boar stack</li>-->
+                    <!--<li>Angular 2</li>-->
+                <!--</ul>-->
+            <!--</section>-->
+            <!--<section>-->
+                <!--<h2>Projects</h2>-->
+                <!--<ul>-->
+                    <!--<li>Notification Center (AngularJS)</li>-->
+                    <!--<li>Trend Reporting (AngularJS)</li>-->
+                    <!--<li>Dashboard (AngularJS)</li>-->
+                    <!--<li>Content editor (Angular 2)</li>-->
+                    <!--<li>Geo Segmentation (Angular 2)</li>-->
+                <!--</ul>-->
+            <!--</section>-->
+        <!--</section>-->
+
+        <section>
+            <section data-background="img/draven.png">
+            </section>
+
+            <section data-background="img/sonic.png">
+            </section>
+
+
+            <section data-background="#ffffff" data-background-video="img/b2cmc_short.mp4">
+            </section>
+
+            <section>
+                <h2 style="color: #7ed4ff !important;">B2C Marketing Cloud</h2>
+                <h3 style="text-transform: none; margin-top: 50px;">50+ service in the backend</h3>
+                <h3 style="text-transform: none; margin-top: 40px;">Frontend is composition<br>of separate SPAs</h3>
+            </section>
+
+            <section>
+                <h2>Angular-based Widgets</h2>
+                <img style="height: 560px !important;" src="img/notification-center.gif" alt="">
+            </section>
+
+            <section data-background-color="#ffffff" data-background-video="img/dashboard2.mov" style="position: relative;">
+                <h2 style="position: relative; top: -200px; display: inline-block; padding: 10px 20px; background: rgba(0, 0, 0, .5)">Dashboard</h2>
+            </section>
+
+        </section>
+
+
+
+        <section>
+            <section>
+                <h2>What we do today</h2>
+
+                <p>
+                  <strong>Refactor</strong> a spaghetti-like Angular application <strong>using future-proof concepts</strong>
+                </p>
+            </section>
+
+            <section style="position: relative;">
+                <h2 style="margin-top: -150px;">Timeline</h2>
+
+                <div style="position: relative; width: 1000px; margin-top: 250px;">
+                    <div style="position: absolute; top: 0; left: 0; width: 1000px; height: 4px; border-radius: 3px; background: #fff;"></div>
+                    <div style="position: absolute; top: -8px; left: 0px; height: 20px; width: 20px; border-radius: 10px; background: #fff; box-shadow: 1px 1px 3px #000; ">
+                        <div style="position: absolute; left: -420px; top: -210px; font-size: 25px; width: 500px; text-align: right; transform: rotate(45deg)">Hacky hacky</div>
+                    </div>
+                    <div style="position: absolute; top: -8px; left: 125px; height: 20px; width: 20px; border-radius: 10px; background: #fff; box-shadow: 1px 1px 3px #000;">
+                        <div style="position: absolute; left: -60px; top: 200px; font-size: 25px; width: 500px; text-align: left; transform: rotate(45deg)">Fix abstractions</div>
+                    </div>
+                    <div style="position: absolute; top: -8px; left: 250px; height: 20px; width: 20px; border-radius: 10px; background: #fff; box-shadow: 1px 1px 3px #000;">
+                        <div style="position: absolute; left: -420px; top: -210px; font-size: 25px; width: 500px; text-align: right; transform: rotate(45deg)">Components</div>
+                    </div>
+                    <div style="position: absolute; top: -8px; left: 375px; height: 20px; width: 20px; border-radius: 10px; background: #fff; box-shadow: 1px 1px 3px #000;">
+                        <div style="position: absolute; left: -60px; top: 200px; font-size: 25px; width: 500px; text-align: left; transform: rotate(45deg)">One-way binding</div>
+                    </div>
+                    <div style="position: absolute; top: -8px; left: 500px; height: 20px; width: 20px; border-radius: 10px; background: #fff; box-shadow: 1px 1px 3px #000;">
+                        <div style="position: absolute; left: -420px; top: -210px; font-size: 25px; width: 500px; text-align: right; transform: rotate(45deg)">Clean data flow</div>
+                    </div>
+                    <div style="position: absolute; top: -8px; left: 625px; height: 20px; width: 20px; border-radius: 10px; background: #fff; box-shadow: 1px 1px 3px #000;">
+                        <div style="position: absolute; left: -60px; top: 200px; font-size: 25px; width: 500px; text-align: left; transform: rotate(45deg)">Smart & Dumb<br>components</div>
+                    </div>
+                    <div style="position: absolute; top: -8px; left: 750px; height: 20px; width: 20px; border-radius: 10px; background: #fff; box-shadow: 1px 1px 3px #000;">
+                        <div style="position: absolute; left: -420px; top: -210px; font-size: 25px; width: 500px; text-align: right; transform: rotate(45deg)">Root components</div>
+                    </div>
+                    <div style="position: absolute; top: -16px; left: 875px; height: 35px; width: 8px; border-radius: 10px; background: #3FEDFF; box-shadow: 1px 1px 3px #000;"></div>
+                    <div style="position: absolute; top: -13px; left: 990px; height: 30px; width: 30px; border-radius: 20px; background: #ff9838; box-shadow: 0 0 3px #000;">
+                        <div style="position: absolute; left: -420px; top: -210px; font-size: 25px; width: 500px; text-align: right; transform: rotate(45deg)"><strong>Angular 2</strong></div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h1 style="width: 120%; margin-left: -10%;">There will be <span style="color: #ff523a; display: inline-block; transform: scale(1.3) rotate(5deg); margin-left: 20px; margin-right: 30px;">no</span>...</h1>
+                <h2>Tests <span style="opacity: .5; font-size: .5em;">OMG!</span></h2>
+                <h2>Angular 2</h2>
+                <h2 class="fragment" style="font-size: 1em;">Typescript ;)</h2>
+            </section>
+
+            <section>
+                <h1><span style="color: #72ea2e;">Just</span> fun!!</h1>
+                <h2>ES6, Webpack</h2>
+                <h2>Clean OOP interfaces</h2>
+                <h2>Angular 2 like</h2>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2 style="color: #72ea2e !important; margin-bottom: -20px;">Look at the</h2>
+                <h1>Starter app</h1>
+            </section>
+
+
+            <section style="text-align: left;">
+                <h2 style="color: #74bbff !important;">Technical overview</h2>
+                <h3>Static files</h3>
+                <h3>Angular 1 + ng-router + http</h3>
+                <h3>Controllers & directives</h3>
+                <h3>Global modules</h3>
+            </section>
+
+            <section style="position: relative;">
+                <div style="position: absolute; width: 100%;">
+                    <img src="img/phone-list.png" alt="" style="box-shadow: 0 0 1px #fff !important;">
+                    <div class="fragment" style="position:absolute; top: 40px; right: 0px; padding: 10px 20px; background: #000; color: #fff; text-align: left; line-height: 1em; z-index: 0;">
+                        Phone-list<br>
+                        <span style="font-size: .7em;">ng-controller <span style="font-size: .7em;">($http, $watch)</span></span>
+                    </div>
+                    <div class="fragment" style="position:absolute; top: 40px; left: -25px; padding: 10px 20px; background: #000; color: #fff; text-align: left; line-height: 1em; z-index: 0;">
+                        <div style="width: 30px; height: 30px; transform: rotate(45deg); position: absolute; left: 50%; bottom: -10px; margin-left: -15px; z-index: -1; background: #000;"></div>
+                        Search-box<br>
+                        <span style="font-size: .7em;">directive <span style="font-size: .7em;">(2-way-binding)</span></span>
+                    </div>
+                    <div class="fragment" style="position:absolute; top: 40px; left: 260px; padding: 10px 20px; background: #000; color: #fff; text-align: left; line-height: 1em; z-index: 0;">
+                        <div style="width: 30px; height: 30px; transform: rotate(45deg); position: absolute; left: 40px; bottom: -10px; margin-left: -15px; z-index: -1; background: #000;"></div>
+                        Carrier-select<br>
+                        <span style="font-size: .7em;">directive <span style="font-size: .7em;">($http, $rootScope broadcast)</span></span>
+                    </div>
+                    <div class="fragment" style="position:absolute; top: 230px; left: 710px; padding: 10px 20px; background: #000; color: #fff; text-align: left; line-height: 1em; z-index: 0;">
+                        <div style="width: 30px; height: 30px; transform: rotate(45deg); position: absolute; left: 5px; bottom: 30px; margin-left: -15px; z-index: -1; background: #000;"></div>
+                        ng-repeat<br>
+                        <span style="font-size: .7em;">with ng-include</span>
+                    </div>
+                    <div class="fragment" style="position:absolute; top: 440px; left: 710px; padding: 10px 20px; background: #000; color: #fff; text-align: left; line-height: 1em; z-index: 0;">
+                        <div style="width: 30px; height: 30px; transform: rotate(45deg); position: absolute; left: 5px; bottom: 30px; margin-left: -15px; z-index: -1; background: #000;"></div>
+                        Short description<br>
+                        <span style="font-size: .7em;">filter</span>
+                    </div>
+                    <div class="fragment" style="position:absolute; top: 548px; left: 240px; padding: 10px 20px; background: #000; color: #fff; text-align: left; line-height: 1em; z-index: 0;">
+                        <div style="width: 30px; height: 30px; transform: rotate(45deg); position: absolute; left: 5px; bottom: 30px; margin-left: -15px; z-index: -1; background: #000;"></div>
+                        Copyright<br>
+                        <span style="font-size: .7em;">directive <span style="font-size: .7em;">($rootScope dep)</span></span>
+                    </div>
+                </div>
+            </section>
+
+            <section style="position: relative;">
+                <div style="position: absolute; width: 100%;">
+                    <img src="img/phone.png" alt="" style="box-shadow: 0 0 1px #fff !important;">
+                    <div class="fragment" style="position:absolute; top: 40px; right: 0px; padding: 10px 20px; background: #000; color: #fff; text-align: left; line-height: 1em; z-index: 0;">
+                        Phone<br>
+                        <span style="font-size: .7em;">ng-controller <span style="font-size: .7em;">($http, $rootScope)</span></span>
+                    </div>
+                    <div class="fragment" style="position:absolute; top: 473px; left: 240px; padding: 10px 20px; background: #000; color: #fff; text-align: left; line-height: 1em; z-index: 0;">
+                        <div style="width: 30px; height: 30px; transform: rotate(45deg); position: absolute; left: 5px; bottom: 30px; margin-left: -15px; z-index: -1; background: #000;"></div>
+                        Copyright<br>
+                        <span style="font-size: .7em;">directive <span style="font-size: .7em;">($rootScope dep)</span></span>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+
+        <!--<section style="text-align: left;">-->
+            <!--<section>-->
+                <!--<h1>Obvious<br>anti-patterns</h1>-->
+            <!--</section>-->
+
+            <!--<section>-->
+                <!--<h3>ng-include</h3>-->
+                <!--<h3>$rootScope</h3>-->
+                <!--<h3>$watch</h3>-->
+                <!--<h3>scope leaking</h3>-->
+                <!--<h3>ng-controller</h3>-->
+                <!--<h3>mixed abstractions</h3>-->
+            <!--</section>-->
+        <!--</section>-->
+
+
+        <section>
+            <section style="text-align: left;">
+                <h2 style="color: #72ea2e !important; margin-bottom: -5px;">Step 1</h2>
+                <h1>Fix abstraction levels</h1>
+            </section>
+
+            <section>
+                <h2 style="font-size: 1.9em;">Mixed abstraction levels</h2>
+                <pre><code class="javascript">
+    // phone-list.ctrl.js
+    function getFilteredPhones() {
+      return $filter('filter')($scope.allPhones, { name: $scope.searchText, carrier: $scope.selectedCarrier });
+    }
+
+    $scope.$watch('selectedCarrier', function() {
+      $scope.phones = getFilteredPhones();
+    });
+
+    $http.get('/api/phones.json')
+        .then(function (response) {
+            $scope.phones = $scope.allPhones = response.data;
+        });
+                </code></pre>
+            </section>
+
+            <section>
+                <h2><span style="display: inline-block; margin-right: 15px; color: #72ea2e !important;">&#x2713;</span> Move logic to service</h2>
+                <pre><code class="javascript">
+    export class PhoneRepositoryService {
+
+      constructor($http) {
+        this._$http = $http;
+      }
+
+      getAll() {
+        return this._$http
+          .get('/api/phones.json')
+          .then((response) => response.data);
+      }
+
+      ...
+
+    }
+                </code></pre>
+            </section>
+
+            <section>
+                <h2>Old style modules</h2>
+
+                <pre><code class="html">
+    <!-- index.html -->
+    <script src="js/app.js"></script>
+    <script src="js/my-service.service.js"></script>
+                </code></pre>
+
+                <pre><code class="javascript">
+    // app.js
+    angular.module('phoneApp', ['ngRoute'])
+        .config('myConfig', ...)
+
+    // my-service.service.js
+    angular.module('phoneApp')
+        .service('myService', ['myConfig', function() { ... }])
+                </code></pre>
+            </section>
+
+            <section>
+                <h2><span style="display: inline-block; margin-right: 15px; color: #72ea2e !important;">&#x2713;</span> Use webpack instead</h2>
+
+                <pre><code class="javascript">
+    // app.js
+    import { MyService } from './services/my-service.service';
+
+    angular.module('phoneApp', ['ngRoute'])
+        .service('myService', ['myConfig', MyService])
+
+
+    // my-service.service.js
+    export class MyService {
+        constructor(myConfig) { ... }
+    }
+                </code></pre>
+            </section>
+
+            <section>
+                <h2 style="width: 110% !important; margin-left: -5%;"><span style="display: inline-block; margin-right: 15px; color: #72ea2e !important;">&#x2713;</span> Definition w/ dependencies</h2>
+
+                <pre><code class="javascript">
+    // my-service.service.js
+    export class MyService {
+
+        constructor(myConfig) { ... }
+
+        static create() {
+            return ['myConfig', MyService];
+        }
+    }
+
+    // app.js
+    import { MyService } from './services/my-service.service';
+
+    angular.module('phoneApp', ['ngRoute'])
+        .service('myService', MyService.create())
+                </code></pre>
+            </section>
+
+        </section>
+
+        <section>
+
+            <section style="text-align: left;">
+                <h2 style="color: #72ea2e !important; margin-bottom: -5px;">Step 2</h2>
+                <h1>Introduce components</h1>
+            </section>
+
+            <section>
+                <h2><span style="color: #ff523a; display: inline-block; transform: scale(1.3) rotate(-5deg); margin-left: 20px; margin-right: 30px;">W*F?!</span> is a component?</h2>
+            </section>
+
+            <section style="text-align: left;">
+                <h1 style="color: #72ea2e !important;">Reduce complexity</h1>
+                <h2>Isolation (html+css+js)</h2>
+                <h2>Single purpose</h2>
+            </section>
+
+            <section>
+                <img style="box-shadow: none !important;" src="img/components.png" alt="">
+            </section>
+
+            <section>
+                <h2>Directives w/ isolated scope</h2>
+
+                <pre><code class="javascript">
+    // copyright.directive.js
+    function() {
+        return {
+            restrict: 'E',
+            scope: {},
+            bindToController: true,
+            controller: function() {},
+            controllerAs: '$ctrl',
+            template: ...
+        };
+    }
+                </code></pre>
+            </section>
+
+            <section>
+                <h2>Components</h2>
+
+                <pre><code class="javascript">
+    // copyright.directive.js
+    return {
+        bindings: {},
+        controller: function() {},
+        template: ...
+    };
+                </code></pre>
+            </section>
+
+            <section>
+                <h2><span style="display: inline-block; margin-right: 15px; color: #72ea2e !important;">&#x2713;</span> Nice NG-2 like components</h2>
+
+                <pre><code class="javascript">
+    export class MyCoolComponent {
+
+      constructor(coolValue) {
+          this.coolValue = coolValue;
+      }
+
+      static create() {
+        return {
+          controller: ['coolValue', MyCoolComponent],
+          template: `So cool to use {{ $ctrl.coolValue }}!`
+        };
+      }
+
+    }
+                </code></pre>
+            </section>
+
+            <section>
+                <h2>Copyright Directive</h2>
+                <pre><code class="javascript">
+    // copyright.directive.js
+    angular
+      .module('phoneApp')
+      .directive('copyright', [
+        function() {
+          return {
+            templateUrl: 'js/copyright.tpl.html'
+          };
+        }
+      ]);
+
+    // copyright.tpl.html
+    <p>Copyright © Emartech {{ actualYear }}</p>
+                </code></pre>
+
+                <pre class="fragment"><code class="javascript">
+    // phone-list.ctrl.js
+    $rootScope.actualYear = 2016;
+                </code></pre>
+            </section>
+
+            <section>
+                <h2><span style="display: inline-block; margin-right: 15px; color: #72ea2e !important;">&#x2713;</span> Use DI</h2>
+
+                <pre><code class="javascript">
+    export class CopyrightComponent {
+
+      constructor(ACTUAL_YEAR) {
+        this.actualYear = ACTUAL_YEAR;
+      }
+
+      static create() {
+        return {
+          controller: ['ACTUAL_YEAR', CopyrightComponent],
+          template: require('./copyright.tpl.html')
+        };
+      }
+
+    }
+                </code></pre>
+
+            </section>
+        </section>
+
+        <section>
+
+            <section style="text-align: left;">
+                <h2 style="color: #72ea2e !important; margin-bottom: -5px;">Step 3</h2>
+                <h1>Downward communication</h1>
+            </section>
+
+            <section>
+                <h2>Usually...</h2>
+                <h2>!!!KEP A KAOTIKUS KOMMUNIKACIOROL!!!</h2>
+            </section>
+
+            <section>
+                <h2>Who is the owner of a data?!</h2>
+            </section>
+
+            <section>
+                <h2>Only one owner</h2>
+            </section>
+
+            <section>
+                <h2><span style="display: inline-block; margin-right: 15px; color: #72ea2e !important;">&#x2713;</span> Ideal communication</h2>
+                <img src="img/data-event-flow.png">
+            </section>
+
+            <section>
+                <h2>Hidden component</h2>
+
+                <pre><code class="javascript">
+    // phone-list.tpl.html
+    <ng-include src="'js/phone-list-item.tpl.html'"></ng-include>
+                </code></pre>
+            </section>
+
+            <section>
+                <h2>Two way data-binding</h2>
+
+                <pre><code class="javascript">
+    // phone-list-item.tpl.html
+    <a ng-href="#/phone/{{ phone.id }}">
+        <h3>{{ phone.name }}</h3>
+    </a>
+                </code></pre>
+
+                <pre class="fragment"><code class="javascript">
+    // phone-list-item.tpl.html
+    <a ng-href="#/phone/{{ phone.id }}" ng-click="phone.name = 'YAAY'">
+        <h3>{{ phone.name }}</h3>
+    </a>
+                </code></pre>
+            </section>
+
+            <section>
+                <h2 style="width: 110%; margin-left: -5%;"><span style="display: inline-block; margin-right: 15px; color: #72ea2e !important;">&#x2713;</span> Component w/ 1-way binding</h2>
+
+                <pre><code class="javascript">
+    // phone-list-item.directive.js
+    return {
+        bindings: {
+            phone: '<'
+        },
+        controller: ...,
+        template: ...
+    }
+                </code></pre>
+            </section>
+        </section>
+
+
+        <section>
+            <section style="text-align: left;">
+                <h2 style="color: #72ea2e !important; margin-bottom: -5px;">Step 4</h2>
+                <h1>Upward communication</h1>
+            </section>
+
+
+            <section>
+                <h2><span style="display: inline-block; margin-right: 15px; color: #72ea2e !important;">&#x2713;</span> Ideal communication</h2>
+                <img src="img/data-event-flow.png">
+            </section>
+
+
+            <section>
+                <h2>Leaking scope &<br>Two way data-binding</h2>
+                <pre><code class="javascript">
+    angular
+      .module('phoneApp')
+      .directive('searchBox', [
+        function() {
+          return {
+            restrict: 'AEC',
+            templateUrl: 'js/search-box.tpl.html'
+          };
+        }
+      ]);
+                </code></pre>
+
+                <pre><code class="html">
+    <!-- search-box.tpl.html -->
+    <input type="text" ng-model="searchText" />
+                </code></pre>
+            </section>
+
+            <section>
+                <h2>$watch in the parent</h2>
+                <pre><code class="html">
+    <!-- phone-list.tpl.html -->
+    <search-box></search-box>
+                </code></pre>
+
+                <pre><code class="javascript">
+    // phone-list.ctrl.js
+    $scope.searchText = '';
+
+    $scope.$watch('searchText', function() {
+        $scope.phones = getFilteredPhones();
+    });
+                </code></pre>
+            </section>
+
+            <section>
+                <h2><span style="display: inline-block; margin-right: 15px; color: #72ea2e !important;">&#x2713;</span>Event instead of $watch</h2>
+                <pre><code class="html">
+    <!-- phone-list.tpl.html -->
+    <search-box on-input-change="setSearchText(value)"></search-box>
+                </code></pre>
+                <pre><code class="">
+    // phone-list.ctrl.js
+    $scope.setSearchText = (value) => $scope.searchText = value;
+                </code></pre>
+            </section>
+
+            <section>
+                <h2><span style="display: inline-block; margin-right: 15px; color: #72ea2e !important;">&#x2713;</span> Communication via events</h2>
+
+                <pre><code class="javascript">
+    // search-box.component.js
+    handleKeyUp($event) {
+        this.onInputChange({ value: $event.target.value });
+    }
+
+    return {
+        bindings: {
+            onInputChange: '&'
+        },
+        controller: SearchBoxComponent,
+        template: ...
+    };
+                </code></pre>
+
+                <pre><code class="html">
+    <!-- search-box.tpl.html -->
+    <input type="text" ng-keyup="$ctrl.handleKeyUp($event)" />
+                </code></pre>
+            </section>
+
+        </section>
+
+        <section>
+            <section style="text-align: left;">
+                <h2 style="color: #72ea2e !important; margin-bottom: -5px;">Step 5</h2>
+                <h1>Dumb components</h1>
+            </section>
+
+            <section>
+                <h1 style="font-size: 2.5em; margin-bottom: -10px;">You have to choose...</h1>
+                <h1><span class="fragment" style="color: #ea5c34 !important;">Smart</span> <span class="fragment">or <span style="color: #71b9ff !important;">dumb</span></span></h1>
+            </section>
+
+            <section>
+                <div style="width: 48%; float:left; text-align: right;">
+                    <h2 style="color: #ea5c34 !important;">Smart</h2>
+                    <h3>Application specific</h3>
+                    <h3>Manage other components</h3>
+                </div>
+                <div style="width: 48%; float: right; text-align: left;">
+                    <h2 style="color: #71b9ff !important;">Dumb</h2>
+                    <h3>Reusable UI<br>&nbsp;</h3>
+                    <h3>Standard HTML like elements</h3>
+                </div>
+
+
+            </section>
+
+            <section style="position: relative;">
+                <div style="position: absolute; width: 100%;">
+                    <img src="img/phone-list.png" alt="" style="box-shadow: 0 0 1px #fff !important;">
+                    <div class="fragment" style="position:absolute; top: 40px; left: 260px; padding: 10px 20px; background: #000; color: #fff; text-align: left; line-height: 1em; z-index: 0;">
+                        <div style="width: 30px; height: 30px; transform: rotate(45deg); position: absolute; left: 40px; bottom: -10px; margin-left: -15px; z-index: -1; background: #000;"></div>
+                        Carrier-select<br><strong>is smart</strong>
+                    </div>
+                    <div class="fragment" style="position:absolute; top: 140px; left: 360px; padding: 10px 20px; background: #000; color: #fff; text-align: left; line-height: 1em; z-index: 0;">
+                        <div style="width: 30px; height: 30px; transform: rotate(45deg); position: absolute; left: 5px; bottom: 40px; margin-left: -15px; z-index: -1; background: #000;"></div>
+                        Bootstrap-select<br><strong>is dumb</strong>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Start with the dumb</h2>
+                <h3>What belongs there?</h3>
+            </section>
+
+            <section style="text-align: left;">
+                <h2>How would I<br>like to use the dumb?</h2>
+                <pre><code class="html">
+    <!-- carrier-select.tpl.html -->
+    &lt;bootstrap-select
+        options="carriers"
+        on-select="selectCarrier(option)"
+        placeholder="All carrier"&gt;
+    &lt;/bootstrap-select&gt;
+                </code></pre>
+            </section>
+
+
+        </section>
+
+
+        <section>
+
+            <section style="text-align: left;">
+                <h2 style="color: #72ea2e !important; margin-bottom: -5px;">Step 6</h2>
+                <h1>Smart components</h1>
+            </section>
+
+            <section style="position: relative;">
+                <div style="position: absolute; width: 100%;">
+                    <img src="img/phone-list.png" alt="" style="box-shadow: 0 0 1px #fff !important;">
+                    <div class="" style="position:absolute; top: 40px; left: 260px; padding: 10px 20px; background: #000; color: #fff; text-align: left; line-height: 1em; z-index: 0;">
+                        <div style="width: 30px; height: 30px; transform: rotate(45deg); position: absolute; left: 40px; bottom: -10px; margin-left: -15px; z-index: -1; background: #000;"></div>
+                        Carrier-select<br><strong>is smart</strong>
+                    </div>
+                    <div class="" style="position:absolute; top: 140px; left: 360px; padding: 10px 20px; background: #000; color: #fff; text-align: left; line-height: 1em; z-index: 0;">
+                        <div style="width: 30px; height: 30px; transform: rotate(45deg); position: absolute; left: 5px; bottom: 40px; margin-left: -15px; z-index: -1; background: #000;"></div>
+                        Bootstrap-select<br><strong>is dumb</strong>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>$rootScope again...</h2>
+
+                <pre><code class="javascript">
+    // carrier-select.directive.js
+    $scope.selectCarrier = function(carrier) {
+        $rootScope.$broadcast('carrier-selected', carrier);
+    };
+                </code></pre>
+            </section>
+
+            <section>
+                <h2>Constructor should not have unexpected side-effects</h2>
+                <h4 class="fragment">like an ajax call for the carriers...</h4>
+            </section>
+
+            <section>
+                <h2><span style="display: inline-block; margin-right: 15px; color: #72ea2e !important;">&#x2713;</span> Lifecycle events</h2>
+                <pre><code class="javascript">
+    export class CarrierSelectComponent {
+
+      ...
+
+      $onInit() {
+        this._carrierRepository
+          .getAll()
+          .then((carriers) => this.carriers = carriers);
+      }
+
+    }
+                </code></pre>
+            </section>
+
+            <section>
+                <h2>Clean communication & eliminate $watch</h2>
+
+                <pre style="width: 105%; margin-left: -2.5%"><code class="html">
+    <!-- phone-list.tpl.html -->
+    <div class="col-lg-12 form-inline">
+        <search-box on-input-change="setSearchText(value)"></search-box>
+        <carrier-select on-select="setSelectedCarrier(carrier)"></carrier-select>
+    </div>
+                </code></pre>
+
+            </section>
+        </section>
+
+        <section>
+            <section style="text-align: left;">
+                <h2 style="color: #72ea2e !important; margin-bottom: -5px;">Step 7</h2>
+                <h1>Clean responsibilities</h1>
+            </section>
+
+            <section>
+                <h2>What is the responsibility of the phone list controller?</h2>
+            </section>
+
+            <section>
+                <h2>Data loading, filtering and handling</h2>
+                <h4>Isn't too much?</h4>
+
+                <pre><code class="javascript">
+    // phone-list.ctrl.js
+    $scope.allPhones = [];
+    $scope.phones = [];
+
+    ...
+
+    function getFilteredPhones() {
+        return $filter('filter')($scope.allPhones, { ... });
+    }
+
+    ...
+
+    phoneRepository
+      .getAll()
+      .then((phones) => $scope.phones = $scope.allPhones = phones);
+                </code></pre>
+            </section>
+
+            <section>
+                <h2>Move reponsibility<br>to service</h2>
+                <pre><code class="javascript">
+    // phone-list.ctrl.js
+    $scope.phones = filteredPhoneList;
+    filteredPhoneList.load();
+                </code></pre>
+
+                <pre><code class="html">
+    <div ng-repeat="phone in phones.getAll()">...</div>
+
+    <div ng-if="!phones.hasAny()">
+      <div><strong>Oh god!</strong> There is no phone to show :(</div>
+    </div>
+                </code></pre>
+
+
+            </section>
+        </section>
+
+        <section>
+            <section style="text-align: left;">
+                <h2 style="color: #72ea2e !important; margin-bottom: -5px;">Step 8</h2>
+                <h1>Finalize architecture</h1>
+            </section>
+
+            <section>
+                <h2>Top level components</h2>
+                <pre><code class="javascript">
+  .config(['$routeProvider', function($routeProvider) {
+    $routeProvider
+      .when('/', {
+        template: '<phone-list-app></phone-list-app>'
+      })
+      .when('/phone/:phoneId', {
+        template: '<phone-app></phone-app>'
+      })
+      .otherwise({
+        redirectTo: '/'
+      });
+  }]);
+                </code></pre>
+            </section>
+
+            <section>
+                <h2>Bundle Angular w/ webpack</h2>
+                <pre><code class="javascript">
+    import angular from 'angular';
+    import ngRoute from 'angular-route';
+
+    ...
+
+    angular
+      .module('phoneApp', [
+        ngRoute
+      ])
+
+                </code></pre>
+            </section>
+        </section>
+
+        <section>
+            <h1>THX</h1>
+        </section>
+    </div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+            { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+            { src: 'plugin/zoom-js/zoom.js', async: true },
+            { src: 'plugin/notes/notes.js', async: true }
+        ]
+    });
+
+</script>
+
+</body>
+</html>
