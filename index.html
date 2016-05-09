@@ -39,6 +39,10 @@
         .reveal p {
             font-size: 1.4em;
         }
+
+        .reveal .controls {
+          opacity: .1;
+        }
     </style>
 </head>
 
@@ -48,40 +52,31 @@
 
     <div class="slides">
         <section>
-            <h1>Journey towards Angular 2</h1>
-            <h4>András Fincza and Gábor Soós</h4>
-            <img class="logo" src="./img/em-logo.svg" alt="" width="300px">
-        </section>
+            <section>
+              <h1>Journey towards Angular 2</h1>
+              <h4>András Fincza and Gábor Soós</h4>
+              <img class="logo" src="./img/em-logo.svg" alt="" width="300px">
+            </section>
 
-        <!--<section>-->
-            <!--<section>-->
-                <!--<h2>Angular at Emarsys</h2>-->
-                <!--<ul>-->
-                    <!--<li>MEAN stack</li>-->
-                    <!--<li>Boar stack</li>-->
-                    <!--<li>Angular 2</li>-->
-                <!--</ul>-->
-            <!--</section>-->
-            <!--<section>-->
-                <!--<h2>Projects</h2>-->
-                <!--<ul>-->
-                    <!--<li>Notification Center (AngularJS)</li>-->
-                    <!--<li>Trend Reporting (AngularJS)</li>-->
-                    <!--<li>Dashboard (AngularJS)</li>-->
-                    <!--<li>Content editor (Angular 2)</li>-->
-                    <!--<li>Geo Segmentation (Angular 2)</li>-->
-                <!--</ul>-->
-            <!--</section>-->
-        <!--</section>-->
-
-        <section>
             <section data-background="img/draven.png">
             </section>
 
             <section data-background="img/sonic.png">
             </section>
 
+            <section style="text-align: left; padding-left: 250px;">
+              <h2>Today's agenda</h2>
 
+              <h4 style="font-weight: normal;"><span style="color: #63D877 !important;">9.00-10.30</span> Workshop</h4>
+              <h4 style="font-weight: normal;"><span style="color: #63D877 !important;">10.30-10.45</span> Coffee break</h4>
+              <h4 style="font-weight: normal;"><span style="color: #63D877 !important;">10.45-12.15</span> Workshop cont’d.</h4>
+              <h4 style="font-weight: normal;"><span style="color: #63D877 !important;">12.15-13.15</span> Lunch</h4>
+              <h4 style="font-weight: normal;"><span style="color: #63D877 !important;">13.15-15.00</span> Workshop</h4>
+            </section>
+
+        </section>
+
+        <section>
             <section data-background="#ffffff" data-background-video="img/b2cmc_short.mp4">
             </section>
 
@@ -97,7 +92,21 @@
             </section>
 
             <section data-background-color="#ffffff" data-background-video="img/dashboard2.mov" style="position: relative;">
-                <h2 style="position: relative; top: -200px; display: inline-block; padding: 10px 20px; background: rgba(0, 0, 0, .5)">Dashboard</h2>
+                <div style="position: relative; top: 0;">
+                    <h2 style="position: absolute; display: inline-block; bottom: -390px; right: -100px; z-index: 100; padding: 20px 20px 10px 20px; background: rgba(0, 0, 0, .9); font-size: 1.3em; line-height: .8em;">
+                      Dashboard<br>
+                      <span style="font-size: .5em;">Angular 1</span>
+                    </h2>
+                </div>
+            </section>
+
+            <section data-background-color="#ffffff" data-background-video="img/content_editor.mov" style="position: relative; top: 0; left: 0;">
+                <div style="position: relative; top: 0;">
+                    <h2 style="position: absolute; display: inline-block; bottom: -340px; right: -100px; z-index: 100; padding: 20px 20px 10px 20px; background: rgba(0, 0, 0, .9); font-size: 1.3em; line-height: .8em;">
+                      Campaign Editor<br>
+                      <span style="font-size: .5em;">WIP / Angular 2</span>
+                    </h2>
+                </div>
             </section>
 
         </section>
@@ -481,7 +490,12 @@
 
             <section>
                 <h2>Usually...</h2>
-                <h2>!!!KEP A KAOTIKUS KOMMUNIKACIOROL!!!</h2>
+                <img style="max-width: 105%; max-height: 105%; margin-left: -8%; box-shadow: none !important;" src="img/components_bad.png" alt="">
+
+                <aside class="notes">
+                  2-way binding: how to log a change? log everywhere....
+                </aside>
+
             </section>
 
             <section>
@@ -494,7 +508,7 @@
 
             <section>
                 <h2><span style="display: inline-block; margin-right: 15px; color: #72ea2e !important;">&#x2713;</span> Ideal communication</h2>
-                <img src="img/data-event-flow.png">
+                <img style="box-shadow: none !important;" src="img/components_flow.png" alt="">
             </section>
 
             <section>
